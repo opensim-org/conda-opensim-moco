@@ -1,4 +1,4 @@
-name: conda-build
+name: Windows 
 
 # syntax https://help.github.com/en/articles/workflow-syntax-for-github-actions
 on:
@@ -10,7 +10,7 @@ on:
     
 jobs:
   windows:
-    name: Windows
+    name: conda-build 
 
     runs-on: windows-latest
 
@@ -19,8 +19,8 @@ jobs:
 
     - name: Initialize Conda for Powershell
       run: |
-        $env:CONDA/conda.bat create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
-        $env:CONDA/conda.bat init powershell
+        $env:CONDA\\conda.bat create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
+        $env:CONDA\\conda.bat init powershell
         conda activate packaging
 
     - name: Deploy Conda package

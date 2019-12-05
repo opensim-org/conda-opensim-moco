@@ -1,4 +1,4 @@
-name: conda-build
+name: Mac 
 
 # syntax https://help.github.com/en/articles/workflow-syntax-for-github-actions
 on:
@@ -10,7 +10,7 @@ on:
     
 jobs:
   mac:
-    name: Mac
+    name: conda-build
 
     runs-on: macos-latest
 
@@ -27,11 +27,11 @@ jobs:
     - name: Install Conda
       run: |
         brew cask install miniconda
+        conda init "$(basename ${SHELL})"
 
     - name: Deploy Conda package
       run: |
         conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
-        conda init zsh
         conda activate packaging
         conda config --set anaconda_upload yes
         anaconda login --username {{ secrets.ANACONDA_USERNAME }} --password {{ secrets.ANACONDA_PASSWORD }}
