@@ -39,6 +39,9 @@ jobs:
         conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
         conda activate packaging
         conda config --set anaconda_upload yes
-        anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
+        # Use unique hostname to avoid warning about multiple logins with the
+        # same hostname.
+        ANACONDA_HOSTNAME=$(cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+        anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }} --hostname $ANACONDA_HOSTNAME
         conda-build --channel conda-forge --user opensim-org .
         anaconda logout
