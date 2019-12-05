@@ -20,7 +20,7 @@ jobs:
     - name: Download MacOSX 10.9 SDK
       run: |
         wget https://github.com/phracker/MacOSX-SDKs/releases/download/10.13/MacOSX10.9.sdk.tar.xz
-        tar -xf MacOSX10.9.sdk
+        tar -xf MacOSX10.9.sdk.tar.xz
         echo 'CONDA_BUILD_SYSROOT:' > conda_build_config.yaml
         echo '$GITHUB_WORKSPACE/MacOSX10.9.sdk' >> conda_build_config.yaml
 
