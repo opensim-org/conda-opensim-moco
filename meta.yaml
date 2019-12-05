@@ -1,0 +1,49 @@
+{% set version = "0.1.0" %}
+
+package:
+    name: opensim
+    version: {{ version }}
+
+source:
+    git_url: https://github.com/opensim-org/opensim-moco.git
+    git_rev: conda
+    folder: opensim-moco-source
+
+build:
+    number: 1
+    skip: true # [win and vc<14]
+    run_exports:
+        - {{ pin_subpackage('opensim', min_pin='x.x', max_pin='x') }}
+
+requirements:
+    build:
+        - git
+        - cmake
+        - pkg-config # [unix]
+        - {{ compiler('fortran') }}
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - swig
+        - python
+        - numpy
+    host:
+        # TODO: Not sure about the contents of the host section.
+        - python
+        - numpy
+    run:
+        - python
+        - numpy
+
+about:
+    home: https://opensim.stanford.edu/moco
+    license: Apache 2.0
+    summary: Musculoskeletal optimal control
+    dev_url: https://github.com/opensim-org/opensim-moco
+
+extra:
+    recipe_maintainers:
+        - chrisdembia
+
+# TODO: Specify a python version.
+# Run with conda-build --channel conda-forge . 
+# This avoids using the Intel Math Kernel Library.

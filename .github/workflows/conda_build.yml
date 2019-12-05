@@ -1,0 +1,27 @@
+name: conda-build
+
+# syntax https://help.github.com/en/articles/workflow-syntax-for-github-actions
+on:
+  push:
+    branches: 
+      - '*'
+    tags:
+      - '*'
+    
+jobs:
+  mac:
+    name: Mac
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Deploy Conda package
+      run: |
+        conda create -n packaging --channel conda-forge conda-build anaconda-client
+        conda activate packaging
+        conda config --set anaconda_upload yes
+        anaconda login --username {{ secrets.ANACONDA_USERNAME }} --password {{ secrets.ANACONDA_PASSWORD }}
+        conda build --channel conda-forge .
+        anaconda logout
