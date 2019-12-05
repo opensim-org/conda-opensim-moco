@@ -26,7 +26,8 @@ jobs:
     - name: Deploy Conda package
       run: |
         cat ~/.bashrc
-        source ~/.bashrc
+        # source ~/.bashrc
+        source /usr/share/miniconda/etc/profile.d/conda.sh
         echo "path: $PATH"
         conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
         source activate packaging
@@ -35,6 +36,5 @@ jobs:
         # same hostname.
         ANACONDA_HOSTNAME=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
         echo $ANACONDA_HOSTNAME
-        anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }} --hostname $ANACONDA_HOSTNAME
-        conda-build --channel conda-forge --user opensim-org .
+        conda-build --channel conda-forge --user opensim-org --token ${{ secrets.ANACONDA_TOKEN }} .
         anaconda logout

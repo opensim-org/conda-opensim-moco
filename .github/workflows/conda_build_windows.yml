@@ -33,6 +33,6 @@ jobs:
         # anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
         echo "build"
         # conda-build --channel conda-forge --user opensim-org .
-        conda-build --channel conda-forge .
+        conda-build --channel conda-forge --user opensim-org --token ${{ secrets.ANACONDA_TOKEN }} .
         echo "logout"
         anaconda logout
