@@ -28,6 +28,7 @@ jobs:
       run: |
         brew cask install miniconda
         conda init "$(basename ${SHELL})"
+        exec zsh
 
     - name: Deploy Conda package
       run: |

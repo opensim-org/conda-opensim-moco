@@ -22,10 +22,10 @@ jobs:
         (Get-Command python).Path
         C:\Miniconda/condabin/conda.bat create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
         C:\Miniconda/condabin/conda.bat init powershell
-        conda activate packaging
 
     - name: Deploy Conda package
       run: |
+        conda activate packaging
         conda config --set anaconda_upload yes
         anaconda login --username {{ secrets.ANACONDA_USERNAME }} --password {{ secrets.ANACONDA_PASSWORD }}
         conda-build --channel conda-forge --user opensim-org .
