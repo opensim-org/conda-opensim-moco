@@ -26,7 +26,7 @@ jobs:
 
     - name: Deploy Conda package
       run: |
-        conda create -n packaging --channel conda-forge conda-build anaconda-client
+        conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
         conda activate packaging
         conda config --set anaconda_upload yes
         anaconda login --username {{ secrets.ANACONDA_USERNAME }} --password {{ secrets.ANACONDA_PASSWORD }}
