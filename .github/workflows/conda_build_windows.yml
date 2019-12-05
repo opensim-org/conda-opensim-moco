@@ -27,6 +27,6 @@ jobs:
       run: |
         conda activate packaging
         conda config --set anaconda_upload yes
-        anaconda login --username {{ secrets.ANACONDA_USERNAME }} --password {{ secrets.ANACONDA_PASSWORD }}
+        anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
         conda-build --channel conda-forge --user opensim-org .
         anaconda logout
