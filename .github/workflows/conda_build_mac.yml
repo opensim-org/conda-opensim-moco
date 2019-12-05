@@ -27,7 +27,9 @@ jobs:
     - name: Install Conda
       run: |
         brew cask install miniconda
+        echo "shell: ${SHELL}"
         conda init "$(basename ${SHELL})"
+        echo "path: $PATH"
 
     - name: Deploy Conda package
       run: |
