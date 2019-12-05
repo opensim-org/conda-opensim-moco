@@ -28,11 +28,9 @@ jobs:
       run: |
         brew cask install miniconda
         conda init "$(basename ${SHELL})"
-        exec zsh
 
     - name: Deploy Conda package
       run: |
-        exec zsh
         conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
         conda activate packaging
         conda config --set anaconda_upload yes
