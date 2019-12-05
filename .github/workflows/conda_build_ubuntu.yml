@@ -25,7 +25,8 @@ jobs:
 
     - name: Deploy Conda package
       run: |
-        source ~/.bashrc
+        cat ~/.bashrc
+        . ~/.bashrc
         echo "path: $PATH"
         conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
         conda activate packaging
