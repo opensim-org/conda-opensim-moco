@@ -40,6 +40,10 @@ requirements:
         - python
         - numpy
 
+# test:
+#     imports:
+#         - opensim
+
 about:
     home: https://opensim.stanford.edu/moco
     license: Apache 2.0

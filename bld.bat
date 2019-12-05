@@ -17,6 +17,7 @@ cmake ../opensim-moco-source ^
     -DMOCO_PYTHON_BINDINGS=on ^
     -DCMAKE_INSTALL_PREFIX=${PREFIX} ^
     -DMOCO_INSTALL_UNIX_FHS=on ^
+    -DBUILD_TESTING=off ^
     -DMOCO_DEPENDENCIES_DIR=../moco_dependencies_install
 
 cmake --build . --target INSTALL --config Release -- /maxcpucount:%CPU_COUNT%
