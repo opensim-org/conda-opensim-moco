@@ -41,7 +41,8 @@ jobs:
         conda config --set anaconda_upload yes
         # Use unique hostname to avoid warning about multiple logins with the
         # same hostname.
-        ANACONDA_HOSTNAME=$(cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+        # https://gist.github.com/earthgecko/3089509
+        ANACONDA_HOSTNAME=$(perl -e '@c=("A".."Z","a".."z",0..9);$p.=$c[rand(scalar @c)] for 1..32; print "$p\n"')
         echo "ANACONDA_HOSTNAME: $ANACONDA_HOSTNAME"
         anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }} --hostname $ANACONDA_HOSTNAME
         conda-build --channel conda-forge --user opensim-org .
