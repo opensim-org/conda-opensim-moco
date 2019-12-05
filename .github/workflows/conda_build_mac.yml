@@ -30,8 +30,6 @@ jobs:
         echo "shell: ${SHELL}"
         conda init "$(basename ${SHELL})"
         echo "path: $PATH"
-        source ~/.bash_profile
-        echo "path: $PATH"
 
     - name: Deploy Conda package
       run: |
@@ -40,6 +38,6 @@ jobs:
         conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
         conda activate packaging
         conda config --set anaconda_upload yes
-        anaconda login --username {{ secrets.ANACONDA_USERNAME }} --password {{ secrets.ANACONDA_PASSWORD }}
+        anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
         conda-build --channel conda-forge --user opensim-org .
         anaconda logout
