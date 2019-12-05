@@ -1,4 +1,4 @@
-name: Mac 
+name: Ubuntu
 
 # syntax https://help.github.com/en/articles/workflow-syntax-for-github-actions
 on:
@@ -12,22 +12,13 @@ jobs:
   conda:
     name: conda-build
 
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
 
-    - name: Download MacOSX 10.9 SDK
+    - name: Initialize Conda
       run: |
-        wget https://github.com/phracker/MacOSX-SDKs/releases/download/10.13/MacOSX10.9.sdk.tar.xz
-        tar -xf MacOSX10.9.sdk.tar.xz
-        echo 'CONDA_BUILD_SYSROOT:' > conda_build_config.yaml
-        echo "  - $GITHUB_WORKSPACE/MacOSX10.9.sdk" >> conda_build_config.yaml
-        cat conda_build_config.yaml
-
-    - name: Install Conda
-      run: |
-        brew cask install miniconda
         echo "shell: ${SHELL}"
         conda init "$(basename ${SHELL})"
         echo "path: $PATH"
@@ -41,7 +32,7 @@ jobs:
         conda config --set anaconda_upload yes
         # Use unique hostname to avoid warning about multiple logins with the
         # same hostname.
-        ANACONDA_HOSTNAME=$(cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+        ANACONDA_HOSTNAME=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
         anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }} --hostname $ANACONDA_HOSTNAME
         conda-build --channel conda-forge --user opensim-org .
         anaconda logout

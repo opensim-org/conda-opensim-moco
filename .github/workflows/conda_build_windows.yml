@@ -9,7 +9,7 @@ on:
       - '*'
     
 jobs:
-  windows:
+  conda:
     name: conda-build
 
     runs-on: windows-latest
