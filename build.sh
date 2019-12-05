@@ -9,7 +9,7 @@ cmake ../opensim-moco-source/dependencies \
     -DOPENSIM_PYTHON_WRAPPING=on \
     -DOPENSIM_INSTALL_UNIX_FHS=on \
     -DCMAKE_INSTALL_PREFIX=../moco_dependencies_install
-make -j${CPU_COUNT} adolc
+cmake . -LAH
 make -j${CPU_COUNT} ipopt
 make -j${CPU_COUNT}
 cd ..
@@ -23,6 +23,7 @@ cmake ../opensim-moco-source \
     -DMOCO_INSTALL_UNIX_FHS=on \
     -DBUILD_TESTING=off \
     -DMOCO_DEPENDENCIES_DIR=../moco_dependencies_install
+cmake . -LAH
 
 make -j${CPU_COUNT}
 make -j${CPU_COUNT} install
