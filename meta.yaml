@@ -20,6 +20,9 @@ requirements:
     build:
         - git
         - cmake
+        - autoconf # [unix]
+        - libtool # [unix]
+        - automake # [unix]
         - pkg-config # [unix]
         - {{ compiler('fortran') }}
         - {{ compiler('c') }}
