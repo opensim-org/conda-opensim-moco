@@ -25,8 +25,13 @@ jobs:
 
     - name: Deploy Conda package
       run: |
+        echo "activate"
         conda activate packaging
+        echo "config"
         conda config --set anaconda_upload yes
+        echo "login"
         anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
+        echo "build"
         conda-build --channel conda-forge --user opensim-org .
+        echo "logout"
         anaconda logout
