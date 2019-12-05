@@ -1,0 +1,31 @@
+name: conda-build
+
+# syntax https://help.github.com/en/articles/workflow-syntax-for-github-actions
+on:
+  push:
+    branches: 
+      - '*'
+    tags:
+      - '*'
+    
+jobs:
+  windows:
+    name: Windows
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Initialize Conda for Powershell
+      run: |
+        $env:CONDA/conda.bat create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
+        $env:CONDA/conda.bat init powershell
+        conda activate packaging
+
+    - name: Deploy Conda package
+      run: |
+        conda config --set anaconda_upload yes
+        anaconda login --username {{ secrets.ANACONDA_USERNAME }} --password {{ secrets.ANACONDA_PASSWORD }}
+        conda-build --channel conda-forge --user opensim-org .
+        anaconda logout
