@@ -24,6 +24,8 @@ requirements:
         - {{ compiler('fortran') }}
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        # For cc1
+        - gcc
         - swig
         - python
         - numpy
