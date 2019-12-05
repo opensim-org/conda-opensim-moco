@@ -30,6 +30,8 @@ jobs:
         echo "shell: ${SHELL}"
         conda init "$(basename ${SHELL})"
         echo "path: $PATH"
+        source ~/.bash_profile
+        echo "path: $PATH"
 
     - name: Deploy Conda package
       run: |
