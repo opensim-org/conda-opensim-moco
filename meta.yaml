@@ -13,7 +13,7 @@ build:
     number: 1
     skip: true # [win and vc<14]
     run_exports:
-        - {{ pin_subpackage('opensim', min_pin='x.x', max_pin='x') }}
+        - {{ pin_subpackage('opensim-moco', min_pin='x.x', max_pin='x') }}
 
 requirements:
     build:
