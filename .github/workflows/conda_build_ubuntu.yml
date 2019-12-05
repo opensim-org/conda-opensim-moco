@@ -26,10 +26,10 @@ jobs:
     - name: Deploy Conda package
       run: |
         cat ~/.bashrc
-        . ~/.bashrc
+        source ~/.bashrc
         echo "path: $PATH"
         conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
-        conda activate packaging
+        source activate packaging
         conda config --set anaconda_upload yes
         # Use unique hostname to avoid warning about multiple logins with the
         # same hostname.
