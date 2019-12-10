@@ -24,11 +24,11 @@ requirements:
         - libtool # [unix]
         - automake # [unix]
         - pkg-config # [unix]
-        - {{ compiler('fortran') }}
+        - {{ compiler('fortran') }} # [not win]
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         # For cc1
-        - gcc
+        - gcc # [not win]
         - swig
         - python
         - numpy
