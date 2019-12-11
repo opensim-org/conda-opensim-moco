@@ -24,5 +24,5 @@ cmake . -LAH
 
 cmake --build . --target INSTALL --config Release -- /maxcpucount:%CPU_COUNT%
 
-Rem TODO use env vars like LIBRARY_BIN  https://github.com/conda/conda-recipes/blob/master/libtiff/bld.batem
+Rem TODO use env vars like LIBRARY_BIN  https://github.com/conda/conda-recipes/blob/master/libtiff/bld.bat
 Rem https://github.com/conda-forge/armadillo-feedstock/blob/37f0a20559aaddbaede9b54cc4eaf725c6d8a7c7/recipe/bld.bat

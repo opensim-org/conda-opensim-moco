@@ -23,6 +23,7 @@ jobs:
         tar -xf MacOSX10.9.sdk.tar.xz
         echo 'CONDA_BUILD_SYSROOT:' > conda_build_config.yaml
         echo "  - $GITHUB_WORKSPACE/MacOSX10.9.sdk" >> conda_build_config.yaml
+        echo "MACOSX_DEPLOYMENT_TARGET: $MACOSX_DEPLOYMENT_TARGET"
         cat conda_build_config.yaml
 
     - name: Install Conda
