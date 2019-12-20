@@ -20,11 +20,12 @@ jobs:
     - uses: goanpeca/setup-miniconda@v1.0.1
       with:
         auto-update-conda: true
+        activate-environment: packaging
         python-version: 3.7
         
     - name: Initialize Conda for Powershell
       shell: pwsh
-      run: conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
+      run: conda install --channel conda-forge anaconda-client conda-verify
 
     - name: Deploy Conda package
       run: |
