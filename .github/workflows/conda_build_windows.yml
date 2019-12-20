@@ -16,12 +16,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-
+  
+    - uses: goanpeca/setup-miniconda@v1.0.1
+      with:
+        auto-update-conda: true
+        python-version: 3.7
+        
     - name: Initialize Conda for Powershell
-      run: |
-        (Get-Command python).Path
-        C:\Miniconda/condabin/conda.bat create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
-        C:\Miniconda/condabin/conda.bat init powershell
+      shell: pwsh
+      run: conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
 
     - name: Deploy Conda package
       run: |
