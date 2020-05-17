@@ -24,7 +24,8 @@ cmake ../opensim-moco-source ^
 cmake . -LAH
 ninja install
 
-Rem TODO https://github.com/conda-forge/casadi-feedstock/blob/master/recipe/bld.bat
-Rem TODO https://github.com/conda/conda-build/wiki/Windows-recipe-patterns
-Rem TODO use env vars like LIBRARY_BIN  https://github.com/conda/conda-recipes/blob/master/libtiff/bld.bat
+Rem https://github.com/conda-forge/casadi-feedstock/blob/master/recipe/bld.bat
+Rem https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/building-conda-packages.html#toolkit
+Rem https://github.com/conda/conda-build/wiki/Windows-recipe-patterns
+Rem use env vars like LIBRARY_BIN  https://github.com/conda/conda-recipes/blob/master/libtiff/bld.bat
 Rem https://github.com/conda-forge/armadillo-feedstock/blob/37f0a20559aaddbaede9b54cc4eaf725c6d8a7c7/recipe/bld.bat
