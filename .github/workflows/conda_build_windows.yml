@@ -25,7 +25,7 @@ jobs:
         
     - name: Initialize Conda for Powershell
       shell: pwsh
-      run: conda install --channel conda-forge anaconda-client conda-verify
+      run: conda install --channel conda-forge conda-build anaconda-client conda-verify
 
     - name: Deploy Conda package
       run: |
