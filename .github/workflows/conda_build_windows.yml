@@ -34,8 +34,7 @@ jobs:
         echo "config"
         conda config --set anaconda_upload yes
         echo "login"
-        # --hostname github-actions-windows
-        anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
+        anaconda login --hostname github-actions-windows-$(Get-Random) --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
         echo "build"
         conda-build --channel conda-forge --user opensim-org .
         echo "logout"

@@ -30,7 +30,6 @@ jobs:
         conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
         conda activate packaging
         conda config --set anaconda_upload yes
-        # --hostname github-actions-ubuntu
-        anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
+        anaconda login --hostname github-actions-ubuntu-$RANDOM --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
         conda-build --channel conda-forge --user opensim-org .
         anaconda logout
