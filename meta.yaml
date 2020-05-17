@@ -20,6 +20,7 @@ requirements:
     build:
         - git
         - cmake
+        - ninja # [win]
         - autoconf # [unix]
         - libtool # [unix]
         - automake # [unix]
