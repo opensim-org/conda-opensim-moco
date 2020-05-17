@@ -36,14 +36,16 @@ jobs:
       run: conda install --channel conda-forge conda-build anaconda-client conda-verify
 
     - name: Deploy Conda package
-      shell: cmd
       run: |
         echo "activate"
         conda activate packaging
         echo "config"
         conda config --set anaconda_upload yes
+        echo "rando"
+        $rando = $(Get-Random)
+        echo $rando
         echo "login"
-        anaconda login --hostname github-actions-windows-%random% --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
+        anaconda login --hostname github-actions-windows-$(Get-Random) --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
         echo "build"
         conda-build --channel conda-forge --user opensim-org .
         echo "logout"
