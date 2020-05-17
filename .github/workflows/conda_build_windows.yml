@@ -16,7 +16,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-      shell: pwsh
   
 # https://github.com/reactos/reactos/pull/2688/files
 #     - name: Add Visual C++ to PATH 
