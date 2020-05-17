@@ -36,7 +36,6 @@ jobs:
       run: conda install --channel conda-forge conda-build anaconda-client conda-verify
 
     - name: Deploy Conda package
-      shell: pwsh
       run: |
         echo "activate"
         conda activate packaging
