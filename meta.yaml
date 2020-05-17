@@ -1,4 +1,4 @@
-{% set version = "0.1.0" %}
+{% set version = "0.4.0" %}
 
 package:
     name: opensim-moco
@@ -27,18 +27,18 @@ requirements:
         - {{ compiler('fortran') }} # [not win]
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        # For cc1
-        - gcc # [not win]
-        - swig
+        - swig 3.0.12
         - python
-        - numpy
+        - numpy x.x
     host:
         # TODO: Not sure about the contents of the host section.
+        - libblas
+        - libcblas
         - python
-        - numpy
+        - numpy x.x
     run:
         - python
-        - numpy
+        - numpy x.x
 
 # test:
 #     imports:

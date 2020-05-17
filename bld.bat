@@ -1,6 +1,4 @@
-
 cd opensim-moco-source
-git submodule update --init
 cd ..
 mkdir moco_dependencies_build
 cd moco_dependencies_build
