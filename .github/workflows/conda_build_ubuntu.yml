@@ -12,7 +12,7 @@ jobs:
   conda:
     name: conda-build
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
     - uses: actions/checkout@v1
@@ -25,12 +25,11 @@ jobs:
 
     - name: Deploy Conda package
       run: |
-        cat ~/.bashrc
-        # source ~/.bashrc
         source /usr/share/miniconda/etc/profile.d/conda.sh
         echo "path: $PATH"
         conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
         conda activate packaging
         conda config --set anaconda_upload yes
-        conda-build --channel conda-forge --user opensim-org --token ${{ secrets.ANACONDA_TOKEN }} .
+        anaconda login --hostname github-actions-mac --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
+        conda-build --channel conda-forge --user opensim-org .
         anaconda logout
