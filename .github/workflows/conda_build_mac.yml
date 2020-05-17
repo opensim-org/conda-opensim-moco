@@ -23,7 +23,7 @@ jobs:
         tar -xf MacOSX10.9.sdk.tar.xz
         echo 'CONDA_BUILD_SYSROOT:' > conda_build_config.yaml
         echo "  - $GITHUB_WORKSPACE/MacOSX10.9.sdk" >> conda_build_config.yaml
-        # For debugging:
+        # For :
         cat conda_build_config.yaml
 
     - name: Install Conda
@@ -40,6 +40,7 @@ jobs:
         conda create -n packaging --channel conda-forge conda-build anaconda-client conda-verify
         conda activate packaging
         conda config --set anaconda_upload yes
-        anaconda login --hostname github-actions-mac --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
+        # --hostname github-actions-mac 
+        anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
         conda-build --channel conda-forge --user opensim-org .
         anaconda logout

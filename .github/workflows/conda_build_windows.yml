@@ -31,12 +31,11 @@ jobs:
       run: |
         echo "activate"
         conda activate packaging
-        echo "list"
-        conda list
         echo "config"
         conda config --set anaconda_upload yes
         echo "login"
-        anaconda login --hostname github-actions-mac --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
+        # --hostname github-actions-windows
+        anaconda login --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
         echo "build"
         conda-build --channel conda-forge --user opensim-org .
         echo "logout"
