@@ -2,20 +2,19 @@ cd opensim-moco-source
 cd ..
 mkdir moco_dependencies_build
 cd moco_dependencies_build
-cmake ../opensim-moco-source/dependencies \
+cmake ../opensim-moco-source/dependencies -LAH \
     -DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} \
     -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET} \
     -DCMAKE_BUILD_TYPE=RelWithDebInfo \
     -DOPENSIM_PYTHON_WRAPPING=on \
     -DOPENSIM_INSTALL_UNIX_FHS=on \
     -DCMAKE_INSTALL_PREFIX=../moco_dependencies_install
-cmake . -LAH
 make -j${CPU_COUNT} ipopt
 make -j${CPU_COUNT}
 cd ..
 mkdir build
 cd build
-cmake ../opensim-moco-source \
+cmake ../opensim-moco-source -LAH \
     -DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} \
     -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET} \
     -DCMAKE_BUILD_TYPE=RelWithDebInfo \
@@ -24,7 +23,6 @@ cmake ../opensim-moco-source \
     -DMOCO_INSTALL_UNIX_FHS=on \
     -DBUILD_TESTING=off \
     -DMOCO_DEPENDENCIES_DIR=../moco_dependencies_install
-cmake . -LAH
 
 make -j${CPU_COUNT}
 make -j${CPU_COUNT} install

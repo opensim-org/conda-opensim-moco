@@ -17,13 +17,14 @@ jobs:
     steps:
     - uses: actions/checkout@v1
   
-# https://github.com/reactos/reactos/pull/2688/files
-#     - name: Add Visual C++ to PATH 
-#       uses: ilammy/msvc-dev-cmd@v1
-#       with:
-#         # Visual C++ associated with Visual Studio 2017 version 15.9
-#         # https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B#Internal_version_numbering
-#         toolset: 14.16
+    # https://github.com/reactos/reactos/pull/2688/files
+    - name: Add Visual C++ to PATH 
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x64
+        # Visual C++ associated with Visual Studio 2017 version 15.9
+        # https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B#Internal_version_numbering
+        toolset: 14.16
 
     - uses: goanpeca/setup-miniconda@v1
       with:
