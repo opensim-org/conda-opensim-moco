@@ -2,11 +2,15 @@ cd opensim-moco-source
 cd ..
 mkdir moco_dependencies_build
 cd moco_dependencies_build
+Rem colpack filenames are too long for Windows, which causes issues
+Rem when cloning the colpack git repository.
 cmake ../opensim-moco-source/dependencies -LAH ^
     -GNinja ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DOPENSIM_PYTHON_WRAPPING=on ^
     -DOPENSIM_INSTALL_UNIX_FHS=on ^
+    -DSUPERBUILD_colpack=off ^
+    -DSUPERBUILD_eigen=off ^
     -DCMAKE_INSTALL_PREFIX=../moco_dependencies_install
 Rem type CMakeFiles/CMakeOutput.log
 ninja
@@ -19,6 +23,7 @@ Rem     -DCMAKE_BUILD_TYPE=Release ^
 Rem     -DMOCO_PYTHON_BINDINGS=on ^
 Rem     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
 Rem     -DMOCO_INSTALL_UNIX_FHS=on ^
+Rem     -DMOCO_WITH_TROPTER=off ^
 Rem     -DBUILD_TESTING=off ^
 Rem     -DMOCO_DEPENDENCIES_DIR=../moco_dependencies_install
 Rem ninja install

@@ -25,7 +25,7 @@ requirements:
         - libtool # [unix]
         - automake # [unix]
         - pkg-config # [unix]
-        - {{ compiler('fortran') }} # [not win]
+        # - {{ compiler('fortran') }} # [not win]
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - swig 3.0.12
