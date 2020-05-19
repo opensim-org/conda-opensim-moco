@@ -5,7 +5,7 @@ cd moco_dependencies_build
 Rem colpack filenames are too long for Windows, which causes issues
 Rem when cloning the colpack git repository.
 cmake ../opensim-moco-source/dependencies -LAH ^
-    -GNinja ^
+    -G"NMake Makefiles" ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DOPENSIM_PYTHON_WRAPPING=on ^
     -DOPENSIM_INSTALL_UNIX_FHS=on ^
@@ -13,7 +13,7 @@ cmake ../opensim-moco-source/dependencies -LAH ^
     -DSUPERBUILD_eigen=off ^
     -DCMAKE_INSTALL_PREFIX=../moco_dependencies_install
 Rem type CMakeFiles/CMakeOutput.log
-ninja
+make -j%CPU_COUNT%
 Rem cd ..
 Rem mkdir build
 Rem cd build
