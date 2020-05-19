@@ -40,12 +40,12 @@ jobs:
         echo "activate"
         conda activate packaging
         echo "config"
-        conda config --set anaconda_upload yes
+        # conda config --set anaconda_upload yes
         echo "rando"
         $rando = $(Get-Random)
         echo $rando
         echo "login"
-        anaconda login --hostname github-actions-windows-$rando --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
+        # anaconda login --hostname github-actions-windows-$rando --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
         echo "build"
         conda-build --channel conda-forge --user opensim-org .
         echo "logout"

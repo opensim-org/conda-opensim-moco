@@ -1,12 +1,12 @@
 name: Ubuntu
 
 # syntax https://help.github.com/en/articles/workflow-syntax-for-github-actions
-on:
-  push:
-    branches: 
-      - '*'
-    tags:
-      - '*'
+# on:
+#   push:
+#     branches: 
+#       - '*'
+#     tags:
+#       - '*'
     
 jobs:
   conda:
