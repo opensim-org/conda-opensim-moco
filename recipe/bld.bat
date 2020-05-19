@@ -8,8 +8,8 @@ cmake ../opensim-moco-source/dependencies -LAH ^
     -DOPENSIM_PYTHON_WRAPPING=on ^
     -DOPENSIM_INSTALL_UNIX_FHS=on ^
     -DCMAKE_INSTALL_PREFIX=../moco_dependencies_install
-type CMakeFiles/CMakeOutput.log
-Rem ninja
+Rem type CMakeFiles/CMakeOutput.log
+ninja
 Rem cd ..
 Rem mkdir build
 Rem cd build
