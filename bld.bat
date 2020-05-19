@@ -9,19 +9,19 @@ cmake ../opensim-moco-source/dependencies -LAH ^
     -DOPENSIM_INSTALL_UNIX_FHS=on ^
     -DCMAKE_INSTALL_PREFIX=../moco_dependencies_install
 type CMakeFiles/CMakeOutput.log
-ninja
-cd ..
-mkdir build
-cd build
-cmake ../opensim-moco-source -LAH ^
-    -GNinja ^
-    -DCMAKE_BUILD_TYPE=Release ^
-    -DMOCO_PYTHON_BINDINGS=on ^
-    -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
-    -DMOCO_INSTALL_UNIX_FHS=on ^
-    -DBUILD_TESTING=off ^
-    -DMOCO_DEPENDENCIES_DIR=../moco_dependencies_install
-ninja install
+Rem ninja
+Rem cd ..
+Rem mkdir build
+Rem cd build
+Rem cmake ../opensim-moco-source -LAH ^
+Rem     -GNinja ^
+Rem     -DCMAKE_BUILD_TYPE=Release ^
+Rem     -DMOCO_PYTHON_BINDINGS=on ^
+Rem     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
+Rem     -DMOCO_INSTALL_UNIX_FHS=on ^
+Rem     -DBUILD_TESTING=off ^
+Rem     -DMOCO_DEPENDENCIES_DIR=../moco_dependencies_install
+Rem ninja install
 
 Rem https://github.com/conda-forge/casadi-feedstock/blob/master/recipe/bld.bat
 Rem https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/building-conda-packages.html#toolkit
