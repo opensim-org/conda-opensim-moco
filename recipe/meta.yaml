@@ -32,18 +32,11 @@ requirements:
         - python
         - numpy x.x
     host:
-        # TODO: Not sure about the contents of the host section.
-        - libblas
-        - libcblas
         - python
         - numpy x.x
     run:
         - python
         - numpy x.x
-
-# test:
-#     imports:
-#         - opensim
 
 about:
     home: https://opensim.stanford.edu/moco

@@ -1,0 +1,2 @@
+import opensim
+opensim.Model()
