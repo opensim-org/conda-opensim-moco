@@ -32,6 +32,9 @@ requirements:
         - python
         - numpy x.x
     host:
+        - libblas
+        - liblapack
+        - ipopt # [unix]
         - python
         - numpy x.x
     run:

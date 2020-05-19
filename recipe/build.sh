@@ -8,8 +8,8 @@ cmake ../opensim-moco-source/dependencies -LAH \
     -DCMAKE_BUILD_TYPE=Release \
     -DOPENSIM_PYTHON_WRAPPING=on \
     -DOPENSIM_INSTALL_UNIX_FHS=on \
+    -DSUPERBUILD_ipopt=off \
     -DCMAKE_INSTALL_PREFIX=../moco_dependencies_install
-make -j${CPU_COUNT} ipopt
 make -j${CPU_COUNT}
 cd ..
 mkdir build
