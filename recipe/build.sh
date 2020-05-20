@@ -4,7 +4,9 @@ mkdir moco_dependencies_build
 cd moco_dependencies_build
 # Allow casadi to find conda's ipopt.
 echo "CONDA PREFIX"
-echo $CONDA_PREFIX
+ls $CONDA_PREFIX
+echo "BUILD PREFIX"
+ls $BUILD_PREFIX
 export CMAKE_PREFIX_PATH=$CONDA_PREFIX
 cmake ../opensim-moco-source/dependencies -LAH \
     -DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} \
@@ -17,6 +19,7 @@ cmake ../opensim-moco-source/dependencies -LAH \
     -DSUPERBUILD_eigen=off \
     -DSUPERBUILD_adolc=off \
     -DCMAKE_INSTALL_PREFIX=../moco_dependencies_install
+make -j${CPU_COUNT} casadi
 # TODO
 # make -j${CPU_COUNT}
 # cd ..
