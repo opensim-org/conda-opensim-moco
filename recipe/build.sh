@@ -9,7 +9,11 @@ echo "BUILD PREFIX"
 ls $BUILD_PREFIX
 echo "BUILD PREFIX lib"
 ls $BUILD_PREFIX/lib
+echo "BUILD PREFIX lib pkgconfig"
 ls $BUILD_PREFIX/lib/pkgconfig
+echo "CONDA PREFIX lib pkgconfig"
+ls $CONDA_PREFIX/lib/pkgconfig
+cat $BUILD_PREFIX/lib/pkgconfig/ipopt.pc
 export CMAKE_PREFIX_PATH=$CONDA_PREFIX
 cmake ../opensim-moco-source/dependencies -LAH \
     -DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} \
