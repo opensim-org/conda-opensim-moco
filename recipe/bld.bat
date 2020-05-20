@@ -15,7 +15,7 @@ cmake ../opensim-moco-source/dependencies -LAH ^
     -DMOCO_WITH_TROPTER=off ^
     -DCMAKE_INSTALL_PREFIX=../moco_dependencies_install
 Rem type CMakeFiles/CMakeOutput.log
-ninja 
+ninja simbody
 Rem cd ..
 Rem mkdir build
 Rem cd build
