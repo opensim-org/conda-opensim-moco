@@ -1,5 +1,3 @@
-cd opensim-moco-source
-cd ..
 mkdir moco_dependencies_build
 cd moco_dependencies_build
 Rem colpack filenames are too long for Windows, which causes issues

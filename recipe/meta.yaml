@@ -20,35 +20,39 @@ requirements:
     build:
         - git
         - cmake
-        - ninja # [win]
-        - autoconf # [unix]
-        - libtool # [unix]
-        - automake # [unix]
-        - pkg-config # [unix]
-        # - {{ compiler('fortran') }} # [not win]
+        - ninja  # [win]
+        - autoconf  # [unix]
+        - libtool  # [unix]
+        - automake  # [unix]
+        - pkg-config  # [unix]
+        - {{ compiler('fortran') }}  # [not win]
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - swig 3.0.12
-        - freeglut # [linux]
-        - ipopt # [unix]
+        - freeglut  # [linux]
+        - ipopt  # [unix]
+        - simbody >=3.7
         - python
         - numpy x.x
     host:
         - libblas
         - liblapack
-        - freeglut # [linux]
-        - ipopt # [unix]
+        - freeglut  # [linux]
+        - ipopt  # [unix]
+        - simbody >=3.7
         - python
         - numpy x.x
     run:
         - python
         - numpy x.x
-        - freeglut # [linux]
-        - ipopt # [unix]
+        - freeglut  # [linux]
+        - ipopt  # [unix]
+        - simbody >=3.7
 
 about:
     home: https://opensim.stanford.edu/moco
     license: Apache 2.0
+    license_file: LICENSE.txt
     summary: Musculoskeletal optimal control
     dev_url: https://github.com/opensim-org/opensim-moco
 
@@ -56,6 +60,5 @@ extra:
     recipe_maintainers:
         - chrisdembia
 
-# TODO: Specify a python version.
 # Run with conda-build --channel conda-forge . 
-# This avoids using the Intel Math Kernel Library.
+# This avoids using Anaconda's Intel Math Kernel Library.
