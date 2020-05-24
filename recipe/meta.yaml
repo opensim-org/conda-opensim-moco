@@ -31,7 +31,7 @@ requirements:
         - swig 3.0.12
         - freeglut  # [linux]
         - ipopt  # [unix]
-        - simbody >=3.7
+        # - simbody >=3.7
         - python
         - numpy x.x
     host:
@@ -39,7 +39,7 @@ requirements:
         - liblapack
         - freeglut  # [linux]
         - ipopt  # [unix]
-        - simbody >=3.7
+        # - simbody >=3.7
         - python
         - numpy x.x
     run:
@@ -47,7 +47,7 @@ requirements:
         - numpy x.x
         - freeglut  # [linux]
         - ipopt  # [unix]
-        - simbody >=3.7
+        # - simbody >=3.7
 
 about:
     home: https://opensim.stanford.edu/moco
