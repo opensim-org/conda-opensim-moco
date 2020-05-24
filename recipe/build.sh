@@ -15,6 +15,7 @@ echo "CONDA PREFIX lib pkgconfig"
 ls $CONDA_PREFIX/lib/pkgconfig
 cat $BUILD_PREFIX/lib/pkgconfig/ipopt.pc
 export CMAKE_PREFIX_PATH=$CONDA_PREFIX
+# TODO attempting to use more recent casadi.
 cmake ../opensim-moco-source/dependencies -LAH \
     -DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} \
     -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET} \
