@@ -35,6 +35,7 @@ requirements:
         - python
         - numpy x.x
     host:
+        # TODO simbody uses openblas
         - libblas
         - liblapack
         - freeglut  # [linux]
