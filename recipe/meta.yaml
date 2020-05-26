@@ -11,7 +11,6 @@ source:
 
 build:
     number: 2
-    skip: true # [win and vc<14]
     detect_binary_files_with_prefix: true
     run_exports:
         - {{ pin_subpackage('opensim-moco', min_pin='x.x', max_pin='x') }}
@@ -31,16 +30,13 @@ requirements:
         - swig 3.0.12
         - freeglut  # [linux]
         - ipopt  # [unix]
-        # - simbody >=3.7
+        - simbody >=3.7
         - python
         - numpy x.x
     host:
-        # TODO simbody uses openblas
-        - libblas
-        - liblapack
         - freeglut  # [linux]
         - ipopt  # [unix]
-        # - simbody >=3.7
+        - simbody >=3.7
         - python
         - numpy x.x
     run:
@@ -48,7 +44,7 @@ requirements:
         - numpy x.x
         - freeglut  # [linux]
         - ipopt  # [unix]
-        # - simbody >=3.7
+        - simbody >=3.7
 
 about:
     home: https://opensim.stanford.edu/moco

@@ -10,23 +10,24 @@ cmake ../opensim-moco-source/dependencies -LAH ^
     -DSUPERBUILD_colpack=off ^
     -DSUPERBUILD_eigen=off ^
     -DSUPERBUILD_adolc=off ^
+    -DSUPERBUILD_simbody=off ^
+    -DSIMBODY_HOME="%CONDA_PREFIX%" \
     -DMOCO_WITH_TROPTER=off ^
     -DCMAKE_INSTALL_PREFIX=../moco_dependencies_install
-Rem type CMakeFiles/CMakeOutput.log
-ninja simbody
-Rem cd ..
-Rem mkdir build
-Rem cd build
-Rem cmake ../opensim-moco-source -LAH ^
-Rem     -GNinja ^
-Rem     -DCMAKE_BUILD_TYPE=Release ^
-Rem     -DMOCO_PYTHON_BINDINGS=on ^
-Rem     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
-Rem     -DMOCO_INSTALL_UNIX_FHS=on ^
-Rem     -DMOCO_WITH_TROPTER=off ^
-Rem     -DBUILD_TESTING=off ^
-Rem     -DMOCO_DEPENDENCIES_DIR=../moco_dependencies_install
-Rem ninja install
+ninja
+cd ..
+mkdir build
+cd build
+cmake ../opensim-moco-source -LAH ^
+    -GNinja ^
+    -DCMAKE_BUILD_TYPE=Release ^
+    -DMOCO_PYTHON_BINDINGS=on ^
+    -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
+    -DMOCO_INSTALL_UNIX_FHS=on ^
+    -DMOCO_WITH_TROPTER=off ^
+    -DBUILD_TESTING=off ^
+    -DMOCO_DEPENDENCIES_DIR=../moco_dependencies_install
+ninja install
 
 Rem https://github.com/conda-forge/casadi-feedstock/blob/master/recipe/bld.bat
 Rem https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/building-conda-packages.html#toolkit
