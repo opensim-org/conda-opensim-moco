@@ -33,7 +33,6 @@ jobs:
         python-version: 3.7
         
     - name: Initialize Conda for Powershell
-      shell: pwsh
       run: conda install --channel conda-forge conda-build anaconda-client conda-verify
 
     - name: Deploy Conda package
@@ -45,6 +44,8 @@ jobs:
         echo "rando"
         $rando = $(Get-Random)
         echo $rando
+        echo "list"
+        conda list
         echo "login"
         # anaconda login --hostname github-actions-windows-$rando --username ${{ secrets.ANACONDA_USERNAME }} --password ${{ secrets.ANACONDA_PASSWORD }}
         echo "build"
